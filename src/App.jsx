@@ -75,7 +75,8 @@ function App() {
     try {
      // const API_LINK="http://localhost/New/Grittystore/Api/getproducts.php";
      //  const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
-     const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getproducts.php";
+     const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
+    
      
      const response= await axios.get(API_LINK,
       { headers:{
