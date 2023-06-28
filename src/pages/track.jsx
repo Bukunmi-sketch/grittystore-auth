@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Flutterwave from "../hooks/usehooks";
-import ExampleComponent from "../hooks/useklump";
+// import Flutterwave from "../hooks/usehooks";
+// import ExampleComponent from "../hooks/useklump";
 import Vellapay from "../hooks/usevella";
 import Message from "../components/message";
 import Delmsg from "../components/delmsg";
@@ -174,7 +174,7 @@ function Track({ Loader, unLoader, totalquantity }) {
             <span> your orderid is <span className="highlighted" style={{ fontSize: "1em", textDecoration: "underline" }} > {id} </span> </span>
           <h5 className="order-hint"> At Afrimama we provide options to: </h5>
 
-         <ExampleComponent
+         {/* <ExampleComponent
             totalprice={input.amount - 5.0}
             email={input.email}
             firstname={input.customers_firstname}
@@ -186,13 +186,13 @@ function Track({ Loader, unLoader, totalquantity }) {
             unLoader={unLoader}
             totalquantity={totalquantity}
             shipping={shipping}
-          /> 
+          />  */}
           {/*  <p> <button className='flutterwave-btn' style={ { backgroundColor:"blue"}}> Pay installmentally </button> </p> */}
 
           {/*   <p> <button className='flutterwave-btn' style={ { backgroundColor:"orange"}}> pay with flutterwave </button> </p>    */}
          
           <p>
-            <Flutterwave
+            {/* <Flutterwave
               style={{ width: "100%" }}
               totalprice={input.amount}
               email={input.email}
@@ -203,7 +203,7 @@ function Track({ Loader, unLoader, totalquantity }) {
               orderid={id}
               Loader={Loader}
               unLoader={unLoader}
-            />
+            /> */}
           </p>
        
        {/*    <p>
