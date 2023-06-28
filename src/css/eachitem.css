@@ -1,0 +1,45 @@
+.each-item-app{
+    border: 1px solid red;
+    margin: 60px 0 0 0;
+    display: flex;
+    height:500px;
+}
+
+.imagebox{
+    border: 1px solid green;
+    width: 60%;
+}
+
+.item-content-box{
+    border: 1px solid yellow;
+    width: 40%;
+    margin:20px 50px 0 50px;
+}
+
+.item-productname{
+    margin: 20px 0 0 0;
+    font-size:2.7em;
+    font-weight:700;
+}
+
+.item-action-box{
+  margin: 50px 0 0 0;
+}
+
+.brand-price{
+   border: 1px solid transparent;
+}
+
+.item-addcartbtn{
+    color: var(--color-white);
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--color-black);
+    padding: 10px 15px;
+    border-radius: 1px;
+    border: 1px solid transparent;
+    font-weight: bold;
+    font-size: 0.9em;
+    cursor: pointer;
+    width: 100%;
+}
