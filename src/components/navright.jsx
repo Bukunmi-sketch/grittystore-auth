@@ -244,7 +244,7 @@ function Navright( { checkout, cartitems, onAdd ,onRemove , onDelete, onClear, c
                               {" "}
                               {item.product_name}{" "}
                             </div>
-                            <div className="itemname"># {item.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} </div>
+                            <div className="itemname"># {parseFloat(item.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} </div>
                           </div>
 
                           <div className="flex-col">

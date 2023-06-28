@@ -40,7 +40,7 @@ function Homeitems( { product , onAdd ,onShow} ) {
 
                <div className="desc-box">
                     <p className="product-brand">{ product.brand }</p>
-                    <p className="price">${ product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') }  </p>
+                    <p className="price">${ parseFloat(product.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') }  </p>
                </div>
         
         <div className="cart-action-box">                            
