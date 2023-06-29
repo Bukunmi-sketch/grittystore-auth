@@ -24,7 +24,7 @@ function MobileNav() {
                         </>
                     ) : (
                         <>
-                            <span> <FaHome/> </span>
+                            <span> <ion-icon name="home-outline"></ion-icon> </span>
                             <h3>Home </h3>
                         </>
                     )}
@@ -34,11 +34,11 @@ function MobileNav() {
                     {location.pathname === "/explore" ? (
                         <>
                             <span> <FaSearch /> </span>
-                            <h3>Search</h3>
+                            <h3> <b> Search </b></h3>
                         </>
                     ) : (
                         <>
-                            <span> <FaSearch /></span>
+                            <span> <ion-icon name="search-outline"></ion-icon> </span>
                             <h3>Search</h3>
                         </>
                     )}
@@ -54,7 +54,7 @@ function MobileNav() {
                         </>
                     ) : (
                         <>
-                            <span> <FaUserAlt /> </span>
+                            <span> <ion-icon name="person-add-outline"></ion-icon> </span>
                             <h3> Connect </h3>
                         </>
                     )
@@ -65,12 +65,12 @@ function MobileNav() {
                     { location.pathname === "/notification" ? (
                         <>
                             <span> <FaBell/> </span>
-                            <h3> <b>Notification </b></h3>
+                            <h3> <b>Notifications </b></h3>
                         </>
                     ) : (
                         <>
-                            <span> <FaBell/> </span>
-                            <h3> Notification </h3>
+                            <span><ion-icon name="notifications-outline"></ion-icon> </span>
+                            <h3> Notifications </h3>
                         </>
                     )
                     }
@@ -79,12 +79,12 @@ function MobileNav() {
                 <Link to="/message" class="menu-nav">
                     { location.pathname === "/message" ? (
                         <>
-                            <span> <FaBell/> </span>
+                            <span> <ion-icon name="heart"></ion-icon> </span>
                             <h3> <b>Messages</b></h3>
                         </>
                     ) : (
                         <>
-                            <span> <FaBell/></span>
+                            <span> <ion-icon name="file-tray-outline"></ion-icon></span>
                             <h3> Messages</h3>
                         </>
                     )

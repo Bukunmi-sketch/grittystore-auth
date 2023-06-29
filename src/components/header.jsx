@@ -48,13 +48,12 @@ function Header({ countCartitems, cartdisplay, onDisplay, onShow, onShowAuthModa
 
 
           <div className='auth-box'>
-            <FaRegUserCircle style={{ fontSize: '1.5em' }} onClick={() => onShowAuthModal()} />
+             <ion-icon name="person-circle-outline" style={{ fontSize: '1.9em' }} onClick={() => onShowAuthModal()}></ion-icon>
           </div>
 
 
-          <div className='cartlist'>
-
-            <FaCartPlus onClick={() => onShow()} style={{ fontSize: '1.5em' }} />
+          <div className='cartlist' onClick={() => onShow()}>
+          <ion-icon name="cart-outline" style={{ fontSize: '1.9em' }}></ion-icon>
             {countCartitems ? (<div className="count" onClick={() => onShow()} >  {countCartitems} </div>) : ('')}
           </div>
 
