@@ -19,9 +19,9 @@ function Homeitems( { product , onAdd ,onShow} ) {
         border:"1px solid red"
      } 
 
-  const linkurl="http://localhost/sales/Grittystore/Images/Product-img/";
+ // const linkurl="http://localhost/New/Grittystore/Images/Product-img/";
  //  const linkurl="http://api.afrimamafarms.com/Images/product-img/";
-  // const linkurl="https://afrimamafarms.com/endpoint/Images/product-img/";
+   const linkurl="https://afrimamafarms.com/endpoint/Images/product-img/";
 
     return ( 
         <>

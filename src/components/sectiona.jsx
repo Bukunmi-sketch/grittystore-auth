@@ -30,15 +30,15 @@ function Sectiona({categories}) {
              <h3> We Serve You The Best Product At Best Prices </h3>
              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam molestias officia commodi. Nemo maiores culpa saepe aut, debitis sunt aspernatur vel error repellendus suscipit, necessitatibus expedita? Repellendus mollitia a totam.</p>
 
-             {/* <div className="flex-container">
+             <div className="flex-container">
                  { categories.map( (category) =>
                     <div className="box">
                     <p>{category.name}</p>
-                    <p>lorem ipsum dolor sit amet,</p>
+                    {/* <p>lorem ipsum dolor sit amet,</p> */}
                 </div> 
                  )         
               }
-             </div> */}
+             </div>
         </section>
 
         </>

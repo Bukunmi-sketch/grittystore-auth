@@ -337,8 +337,25 @@ aside{
     width:100%;
 }
 
+/* -------------------------CATEGORIES SECTION-------------------*/
+.flex-container{
+    border: 1px solid #cecece;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    justify-content: center;
+    overflow-x: scroll;
+}
 
-
+.flex-container .box{
+    width: 100px;
+    height:100px;
+    border: 1px solid #cecece;
+    margin:6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 /* -------------------------SUPPORT SECTION-------------------*/

@@ -5,6 +5,7 @@ import './css/App.css'
 import './css/product.css'
 import './css/media.css'
 import './css/checkout.css'
+import './css/left.css'
 import './css/headernav.css'
 import './css/loader.css'
 import Header from './components/header';
@@ -63,6 +64,10 @@ function App() {
   }, []);
 
   useEffect(() => {
+    getCategories();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
 
@@ -74,7 +79,7 @@ function App() {
     try {
     //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
-        const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
+      const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
 
 
       const response = await axios.get(API_LINK,
@@ -103,10 +108,10 @@ function App() {
 
   async function searchproducts() {
 
-  //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+ //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
     //    const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
     //   const API_LINK="https://afrimamafarms.com/endpoint/Api/getproducts.php";  
-    const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
+   const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
     const response = await axios.get(API_LINK,
       {
         headers: {
@@ -122,9 +127,9 @@ function App() {
   async function getCategories() {
     setError("wait a minute ,fetching categories");
     try {
-      const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
+   //   const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getCategories.php";  
-      //    const API_LINK="https://afrimamafarms.com/endpoint/Api/getCategories.php";  
+          const API_LINK="https://afrimamafarms.com/endpoint/Api/getCategories.php";  
       const categoryresponse = await axios.get(API_LINK,
         {
           headers: {
@@ -373,8 +378,8 @@ function App() {
                 onHideAuthModal={onHideAuthModal}
                 userToken={userToken}
               />
-              <Sectiona />
-              <Main onAdd={onAdd} onShow={show} onSearch={searchchange} searchterm={searchterm} products={products} error={Error} />
+              <Sectiona categories={categories} />
+              <Main onAdd={onAdd} onShow={show} onSearch={searchchange} searchterm={searchterm} products={products} error={Error}  />
               <Sectionb />
             </>
           } />

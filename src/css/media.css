@@ -27,7 +27,7 @@
 /* ---------------------------MEDIA QUERY FOR SMALL TABLETS AND MOBILE PHONES-----------------*/
 
 @media screen and (max-width:992px) {
-    header .otherside ul {
+    /* header .otherside ul {
         display: flex;
         flex-direction: column;
         width: 70%;
@@ -38,6 +38,10 @@
         left: -70%;
         border: 1px solid transparent;
         z-index: 200px;
+    } */
+
+    header .otherside ul {
+        display: none;
     }
 
     .bar-box {

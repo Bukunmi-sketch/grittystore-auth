@@ -37,8 +37,8 @@ function Header({ countCartitems, cartdisplay, onDisplay, onShow, onShowAuthModa
             <li> <Link to='/product' className="menu-item" onClick={() => onUnDisplay()} > Brands  </Link> </li>
             <li> <Link to='/Team' className="menu-item" onClick={() => onUnDisplay()} > Contact us </Link>  </li>
             <li> <Link to='/about' className="menu-item" onClick={() => onUnDisplay()}> About us </Link>  </li>
-            <li> <Link to='/login' className="menu-item" onClick={() => onUnDisplay()}> About us </Link>  </li>
-            <li> <Link to='/signup' className="menu-item" onClick={() => onUnDisplay()}> About us </Link>  </li>
+            {/* <li> <Link to='/login' className="menu-item" onClick={() => onUnDisplay()}> About us </Link>  </li>
+            <li> <Link to='/signup' className="menu-item" onClick={() => onUnDisplay()}> About us </Link>  </li> */}
 
 
           </ul>
