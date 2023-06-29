@@ -72,9 +72,9 @@ function App() {
   async function getProduce() {
     setError("wait a minute ,fetching products");
     try {
-      const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+    //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
-      //  const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
+        const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
 
 
       const response = await axios.get(API_LINK,
@@ -103,9 +103,10 @@ function App() {
 
   async function searchproducts() {
 
-    const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+  //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
     //    const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
     //   const API_LINK="https://afrimamafarms.com/endpoint/Api/getproducts.php";  
+    const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
     const response = await axios.get(API_LINK,
       {
         headers: {
