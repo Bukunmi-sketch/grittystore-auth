@@ -314,11 +314,11 @@ header{
 }
 
 input[type=search]{
-    width:70%;
-    background-color: #ecf1f1f6;
+    width:90%;
+    background-color:white;
     height: 45px;
-    border-radius: 5px;
-    border: 1px solid transparent;
+    border-radius:2px;
+    border: 1px solid black;
     text-align: center;
     margin:0 auto;
     display: flex;
@@ -339,170 +339,6 @@ aside{
 
 
 
-/* -------------------------WHY-------------------*/
-
-.section-why{
-    border:1px solid transparent;
-    height: 500px;
-}
-
-.try{
-    color: #FF6600;
-}
-
-.section-why h3{
-    font-weight: 700;
-    margin:20px auto;
-    text-align: center;
-   
-}
-
-.farm-image-box{
-    width: 50%;
-    height: 300px;  
-    position: relative;
-    top: 0;
-    border: 1px solid transparent;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-
-.farm-imagea{
-   width: 220px;
-   height: 220px;  
-   position: absolute;
-}
-
-.farm-imageb{
-    width: 120px;
-    height: 120px; 
-    margin:70px 0 0 -100px;
-    position: absolute;
-}
-
-.farm-imagec{
-    width: 100px;
-    height:100px; 
-    margin:50px 0 0 80px;
-    position: absolute;
-}
-
-.farm-imaged{
-    width: 140px;
-    height:140px; 
-    margin:150px 0 0 20px;
-    position: absolute;
-}
-
-/* -------------------------OUR CLIENT-------------------*/
-
-.our-client{
-    background-color: var(--color-black);
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.client-boxa{
-   border: 1px solid transparent;
- 
-   width: 50%;
-  
-}
-
- /*
-.suit-images{
-   height:75%;
-   
-    position: absolute;
-    width:500px;
-    aspect-ratio: 1/1;
-    overflow: visible;
-    margin:-93px 0 0 -30px;
-    
-}
-*/
-
-.client-boxb{
-    display: flex;
-    flex-direction: column;
-    margin-left:10px;
-    border: 1px solid transparent;
-    height: 100%;
-    width: 50%;
-}
-
-.client-boxb h3{
-    color: white;
-    font-weight: 600;
-    margin:50px 0 0 0;
-    font-size:2.5em;
-}
-
-.client-boxb p{
-    color: white;
-    font-weight: 700;
-    margin:auto;
-    font-size: 2em;
-}
-
-.delivered-con{
-    display: flex;
-    border:1px solid transparent;
-    justify-content:space-around;
-    height: 100%;
-}
-
-.delivered{
-   display: block;
-   text-align: center;
-   margin-top: 100px;
-}
-
-.delivered .italic-order{
-    color: white;
-    margin:-5px 0 0 0;
-    font-weight: 500;
-    font-style: italic;
-    font-size: 0.8em;
-}
-
-
-.img-con{
-    display: flex;
-    flex-direction: column;    
-    border: 1px solid transparent;
-    align-items: center;
-    justify-content: center;
-}
-
-.img-con img{
-    border-bottom:40px solid white;
-    border-radius: 20px;
-    height:160px;
-    width:350px;
-    border-radius:20px;
-}
-
-.img-con span{
-    width:100%;
-    padding: 10px;
-    margin:-40px auto;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    color: grey;
-}
-
-/*
-.chatimage{
-    height:150px;
-    width:350px;
-    border-radius:20px;
-}
-*/
 
 
 /* -------------------------SUPPORT SECTION-------------------*/
@@ -562,13 +398,14 @@ main .container .right{
     display: flex;
     position: relative;
     border: 1px solid #cecece;
-    background-color: black;
+    background-color: #cecece;
     margin-top:50px;
     bottom: 0;
     width: 100%;
     align-items: center;
     padding: 50px 0;
     justify-content: space-around;
+    color: black;
 }
 
 .footer-logo{
@@ -587,13 +424,12 @@ main .container .right{
 
 .first-box ul li span{
     font-size: 2em;
-    color: white;
+    
     font-weight: bold;
 }
 
 .footer-head{
     font-weight: bold;
-    color: white;
 
 }
 .footer ul li{
@@ -604,6 +440,7 @@ main .container .right{
     translate: all 300ms ease;
     position: relative;
     border: 1px solid transparent;
+    color: black;
 }
 
 .footer ul li h3{
@@ -633,7 +470,7 @@ li .buy-now{
 }
 
 .footer-icon{
-    color: white;
+   color: black;
     margin:10px;
 }
 

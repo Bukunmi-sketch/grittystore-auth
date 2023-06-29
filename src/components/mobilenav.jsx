@@ -19,12 +19,12 @@ function MobileNav() {
                 <Link to="/home" class="menu-nav" id="message-notifications">
                     {location.pathname === "/home" ? (
                         <>
-                            <span> <FaHome/> </span>
+                            <span> <ion-icon name="home" style={{ fontSize: '1.2em' }}></ion-icon> </span>
                             <h3><b>Home </b> </h3>
                         </>
                     ) : (
                         <>
-                            <span> <ion-icon name="home-outline"></ion-icon> </span>
+                            <span> <ion-icon name="home-outline"  style={{ fontSize: '1.2em' }}></ion-icon> </span>
                             <h3>Home </h3>
                         </>
                     )}
@@ -34,11 +34,11 @@ function MobileNav() {
                     {location.pathname === "/explore" ? (
                         <>
                             <span> <FaSearch /> </span>
-                            <h3> <b> Search </b></h3>
+                            <h3> <b> Search</b></h3>
                         </>
                     ) : (
                         <>
-                            <span> <ion-icon name="search-outline"></ion-icon> </span>
+                            <span> <ion-icon name="search-outline"  style={{ fontSize: '1.2em' }}></ion-icon> </span>
                             <h3>Search</h3>
                         </>
                     )}
@@ -46,20 +46,20 @@ function MobileNav() {
 
 
 
-                <Link to="/connect" class="menu-nav">
+                {/* <Link to="/connect" class="menu-nav">
                     { location.pathname === "/connect" ? (
                         <>
                             <span>  <FaUserAlt />   </span>
-                            <h3> <b>Connect </b></h3>
+                            <h3> <b>Shops </b></h3>
                         </>
                     ) : (
                         <>
                             <span> <ion-icon name="person-add-outline"></ion-icon> </span>
-                            <h3> Connect </h3>
+                            <h3> Shops </h3>
                         </>
                     )
                     }
-                </Link>
+                </Link> */}
 
                 <Link to="/notification" class="menu-nav">
                     { location.pathname === "/notification" ? (
@@ -69,7 +69,7 @@ function MobileNav() {
                         </>
                     ) : (
                         <>
-                            <span><ion-icon name="notifications-outline"></ion-icon> </span>
+                            <span><ion-icon name="notifications-outline"  style={{ fontSize: '1.2em' }}></ion-icon> </span>
                             <h3> Notifications </h3>
                         </>
                     )
@@ -79,12 +79,12 @@ function MobileNav() {
                 <Link to="/message" class="menu-nav">
                     { location.pathname === "/message" ? (
                         <>
-                            <span> <ion-icon name="heart"></ion-icon> </span>
+                            <span> <ion-icon name="person-circle" style={{ fontSize: '1.2em' }} ></ion-icon> </span>
                             <h3> <b>Messages</b></h3>
                         </>
                     ) : (
                         <>
-                            <span> <ion-icon name="file-tray-outline"></ion-icon></span>
+                            <span> <ion-icon name="person-circle-outline" style={{ fontSize: '1.2em' }} ></ion-icon></span>
                             <h3> Messages</h3>
                         </>
                     )
