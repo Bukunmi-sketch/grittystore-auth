@@ -1,6 +1,7 @@
 import React from 'react';
 import first from '../Images/14.jpg'
 
+
 function Sectiona({categories}) {
     return ( 
         <>

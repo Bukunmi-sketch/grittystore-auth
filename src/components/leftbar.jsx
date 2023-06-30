@@ -10,19 +10,17 @@ function Leftbar( { cartdisplay, onDisplay, onShow,  onUnDisplay, categories }) 
    const navigate= useNavigate();
 
      return ( 
-         <div className="leftnav" style={{ width: cartdisplay.width }}>
-                       
+         <div className="leftnav" >
+                       {/* style={{ width: cartdisplay.width }} */}
                   <ul  className='leftnav-cont'>
                       <li className="closebar">
-                        <FaTimes onClick={()=>onUnDisplay()} className='icons' />
+                        <ion-icon name="close-outline" onClick={()=>onUnDisplay()} className='icons'></ion-icon>
                       </li>      
 
                        <h3>Categories</h3>   
                        {  categories.map( (category) =>  <li> <Link to={`category/${category.name}` } className="menu-item" onClick={()=>onUnDisplay()}> {category.name} </Link>  </li>  )
                       
                       }  
-                         
-
                         <h3>Sections</h3>    
                         <li> <Link to='/' className="menu-item" onClick={()=>onUnDisplay()}> Shop </Link>  </li> 
                        

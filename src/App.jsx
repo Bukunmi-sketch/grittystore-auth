@@ -32,13 +32,14 @@ import Home from './pages/home';
 
 
 
+
 function App() {
   // const { products }= data;
   const [products, setProduce] = useState([]);
   // const [cartitems, setCartitems ]=useLocalStorage("cartkey",[]);
   const [categories, setCategory] = useState([]);
   const [cartitems, setCartitems] = useState([]);
-  const [cartdisplay, setcartdisplay] = useState({ left: "-70%", transition: "0.3s" });
+  const [cartdisplay, setcartdisplay] = useState({ left: "0%", transition: "0.3s" });
   const [cartshow, setcartshow] = useState({ width: "0" });
   const [authModal, setauthModal] = useState({ width: "0" });
   const [showRegisterPage, setshowRegisterPage] = useState(true);
@@ -79,7 +80,7 @@ function App() {
     try {
     //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
-      const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
+      const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getproducts.php";
 
 
       const response = await axios.get(API_LINK,
@@ -127,9 +128,9 @@ function App() {
   async function getCategories() {
     setError("wait a minute ,fetching categories");
     try {
-   //   const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
+      const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getCategories.php";  
-          const API_LINK="https://afrimamafarms.com/endpoint/Api/getCategories.php";  
+      //    const API_LINK="https://afrimamafarms.com/endpoint/Api/getCategories.php";  
       const categoryresponse = await axios.get(API_LINK,
         {
           headers: {

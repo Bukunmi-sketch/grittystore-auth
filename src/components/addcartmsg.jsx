@@ -8,14 +8,14 @@ function Addmsg({message, hideMessage, msgdisplay}) {
          fontFamily:"DM sans"
     }
     return ( 
-        <div className="details-displayed" style={{ display: msgdisplay.display,  background:"transparent" }}>
+        <div className="details-displayed" style={{ display: msgdisplay.display, background:"transparent" }}>
 
-        <div className="details-content" style={{ backgroundColor:"#ff6600", width:"160px" }}>
-             <div className="modal-header">
+        <div className="details-content" style={{ backgroundColor:"#ccc", width:"160px" }}>
+             <div className="modal-header " style={{ backgroundColor:"#000"}}>
                  <h2>Message</h2>
              </div>
             <div className="modal-content-p">
-               <p style={font}>{message} <FaCheck/> </p>
+               <p>{message} <FaCheck/> </p>
             </div>
         </div>
     

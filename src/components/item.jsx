@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import EachItem from './eachitem';
 import pica from '../Images/smallproduct.png'
+import { motion, AnimatePresence } from "framer-motion";
+
 
 function Homeitems( { product , onAdd ,onShow} ) {
 
@@ -21,16 +23,21 @@ function Homeitems( { product , onAdd ,onShow} ) {
 
  // const linkurl="http://localhost/New/Grittystore/Images/Product-img/";
  //  const linkurl="http://api.afrimamafarms.com/Images/product-img/";
-   const linkurl="https://afrimamafarms.com/endpoint/Images/product-img/";
+ //  const linkurl="https://afrimamafarms.com/endpoint/Images/product-img/";
+ const linkurl="http://afrimamafarms.onlinewebshop.net/endpoint/Images/product-img/";
 
     return ( 
-        <>
-
-        <div className="each-user">
+      <AnimatePresence>
+      <motion.div
+          key="div"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 100 }}
+          transition={{ duration: 1 }}  className="each-user">
           
            <div className="content-box">
               <div className="imagebox" >
-                 <img src={`${linkurl}${product.product_picture}` } alt={ product.product_picture } style={ imagestyle } />
+                 <img src={`${linkurl}${product.product_picture}`} alt={ product.product_picture } style={ imagestyle } />
               </div>
             </div>
 
@@ -47,10 +54,8 @@ function Homeitems( { product , onAdd ,onShow} ) {
             <button  type="button" onClick={ ()=>onAdd(product) }  className="addcartbtn" > Add to cart </button>          
             <Link to={`eachitem/${product.id}` } className="menu-item" >   <button type="button" className="justbtn" > view details  </button>  </Link>     
         </div>
-    </div>
-    
-   
-    </> 
+        </motion.div>
+        </AnimatePresence>
      );
 }
 
