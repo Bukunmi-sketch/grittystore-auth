@@ -27,7 +27,9 @@ import Aboutus from './pages/aboutus';
 import Products from './pages/products';
 import Addmsg from './components/addcartmsg';
 import EachItem from './components/eachitem';
+import MobileNav from './components/mobilenav';
 import Leftbar from './components/leftbar';
+import HomeHeader from './components/homeheader';
 import Home from './pages/home';
 
 
@@ -78,7 +80,7 @@ function App() {
   async function getProduce() {
     setError("wait a minute ,fetching products");
     try {
-    //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+     // const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
       const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getproducts.php";
 
@@ -108,8 +110,7 @@ function App() {
   }
 
   async function searchproducts() {
-
- //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+ // const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
     //    const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
     //   const API_LINK="https://afrimamafarms.com/endpoint/Api/getproducts.php";  
    const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
@@ -130,7 +131,8 @@ function App() {
     try {
       const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getCategories.php";  
-      //    const API_LINK="https://afrimamafarms.com/endpoint/Api/getCategories.php";  
+      //    const API_LINK="https://afrimamafarms.com/endpoint/Api/getCategories.php";
+    //  const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getCategories.php";
       const categoryresponse = await axios.get(API_LINK,
         {
           headers: {
@@ -382,11 +384,29 @@ function App() {
               <Sectiona categories={categories} />
               <Main onAdd={onAdd} onShow={show} onSearch={searchchange} searchterm={searchterm} products={products} error={Error}  />
               <Sectionb />
+              <Footer onUnDisplay={undisplay} scrollto={scrollto} />
             </>
           } />
           <Route path='/team' element={<Teams />} />
           <Route path='/product' element={<Products onAdd={onAdd} onShow={show} onCheck={check} onSearch={searchchange} searchterm={searchterm} products={products} />} />
-          <Route path='/home' element={<Home onAdd={onAdd} onShow={show} onCheck={check} onSearch={searchchange} searchterm={searchterm} products={products} />} />
+          <Route path='/home' element={
+            <>
+          <HomeHeader
+          countCartitems={cartitems.length}
+          onDisplay={display}
+          cartdisplay={cartdisplay}
+          onShow={show}
+          onUnDisplay={undisplay}
+          onUnShow={unshow}
+          authModal={authModal}
+          onShowAuthModal={onShowAuthModal}
+          onHideAuthModal={onHideAuthModal}
+          userToken={userToken}
+          />
+          <Home onAdd={onAdd} onShow={show} onCheck={check} onSearch={searchchange} searchterm={searchterm} products={products} />
+          <MobileNav /> 
+           </>
+          } />
           <Route path='/about' element={<Aboutus />} />
           {/* <Route path='/login' element={<Login/> } />
                             <Route path='/signup' element={< Signup/> } /> */}
@@ -394,7 +414,7 @@ function App() {
 
         </Routes>
 
-        <Footer onUnDisplay={undisplay} scrollto={scrollto} />
+      
       </BrowserRouter>
 
 

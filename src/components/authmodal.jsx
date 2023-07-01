@@ -22,6 +22,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
   const [confirmpay, setconfirmpay] = useState(false);
   const [Errormsg, setErrormsg] = useState("");
   const [localgov, setLga] = useState([]);
+  const [buttonloading, setbuttonLoading] = useState(false);
 
 
   const options = ["", "Oyo", "Lagos", "Osun", "Ondo"];
@@ -111,7 +112,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
   //when button is submitted
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-    Loader();
+    setbuttonLoading(true);
 
     const name = event.target.name;
     const value = event.target.value;
@@ -139,16 +140,16 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
             navigate(`/page/${response.data.userid} `);
             onClear();
             onUnShow();
-            unLoader();
+            setbuttonLoading(false);
            }else{
              setErrormsg(response.data.message);
-             unLoader();
+             setbuttonLoading(false);
            }        
         }
       })
       .catch(function (error) {
         console.log("errorrrr", error);
-        unLoader();
+        setbuttonLoading(false); 
       });
   };
 
@@ -172,30 +173,18 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
       </Routes>
 */}
       {authModal.show  ? (
-        <div className="navright" style={{ width: authModal.width }}>
+        <div className="navright" style={{ width: authModal.width, height:"100vh", justifyContent:"center", alignItems:"center", display:"flex", flexDirection:"column" }}>
 
       <div className="times">
-            <span>
-            
-              <FaTimes
-                onClick={() => onHideAuthModal()}
-                className="icons"
-                style={{  marginTop: "5px",  marginLeft: "90%",  fontSize: "1.2em", }} />
-            </span>
+            <span> <FaTimes onClick={() => onHideAuthModal()} className="icons" style={{  marginTop: "5px",  marginLeft: "90%",  fontSize: "1.2em", }} /> </span>
           </div>
 
           <div className="items">
             {/*  first box */}
             <div className="checkout-first-box">
               <ul>
-                <li>
-                  <img src={logo} alt="afrimama" className="footer-logo" />
-                </li>
-                <li>
-                  <p>
-                    Signup or Login get access to your bought items
-                  </p>
-                </li>
+                <li><img src={logo} alt="afrimama" className="footer-logo" /> </li>
+                <li> <p> Signup or Login get access to your bought items </p> </li>
               </ul>
             </div>
             <div className="subtotal-container">
@@ -213,111 +202,52 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                           <div className="flexnameboxa">
                             <div className="namebox">
                               <label htmlFor="Name">FirstName: </label>
-                              <input
-                                type="text"
-                                name="firstname"
-                                value={inputs.firstname || ""}
-                                onChange={handleChange}
-                                required
-                              />
+                              <input type="text" name="firstname" value={inputs.firstname || ""} onChange={handleChange} required />
                             </div>
 
                             <div className="namebox">
                               <label htmlFor="Name">LastName: </label>
-                              <input
-                                type="text"
-                                name="lastname"
-                                value={inputs.lastname || ""}
-                                onChange={handleChange}
-                                required
-                              />
+                              <input type="text" name="lastname" value={inputs.lastname || ""} onChange={handleChange} required />
                             </div>
                           </div>
 
                           <div className="flexnameboxb">
                             <div className="namebox">
                               <label htmlFor="address">State </label>
-                              <select
-                                name="state"
-                                onChange={handleChange}
-                                required
-                              >
-                                {options.map((option) => (
-                                  <option
-                                    key={option}
-                                    value={option}
-                                    onChange={handleChange}
-                                  >
-                                    {option}
-                                  </option>
-                                ))}
+                              <select name="state" onChange={handleChange} required >
+                                {options.map((option) => ( <option key={option} value={option} onChange={handleChange} > {option} </option> ))}
                               </select>
                             </div>
 
                             <div className="namebox">
                               <label htmlFor="email">Email Address</label>
-                              <input
-                                type="email"
-                                name="email"
-                                value={inputs.email || ""}
-                                onChange={handleChange}
-                                required
-                              />
+                              <input type="email" name="email" value={inputs.email || ""} onChange={handleChange} required />
                             </div>
                           </div>
 
                           <div className="flexnameboxb">
                             <div className="namebox">
                               <label htmlFor="phono_no">Phone No</label>
-                              <input
-                                type="number"
-                                name="phone"
-                                value={inputs.phone || ""}
-                                onChange={handleChange}
-                                required
-                              />
+                              <input type="number" name="phone" value={inputs.phone || ""} onChange={handleChange} required />
                             </div>
 
                             <div className="namebox">
                               <label htmlFor="address">Local Government </label>
-                              <select
-                                name="lga"
-                                onChange={handleChange}
-                                required
-                              >
-                                {localgov.map((lga) => (
-                                  <option
-                                    key={lga}
-                                    value={lga}
-                                    onChange={handleChange}
-                                  >
-                                    {lga}
-                                  </option>
-                                ))}
+                              <select name="lga" onChange={handleChange} required >
+                                {localgov.map((lga) => ( <option key={lga} value={lga} onChange={handleChange} > {lga} </option> ))}
                               </select>
                             </div>
                           </div>
 
                           <div className="namebox">
                             <label htmlFor="address"> Password </label>
-                            <input
-                              type="text"
-                              name="password"
-                              value={inputs.password || ""}
-                              onChange={handleChange}
-                              required
-                            />
+                            <input type="text" name="password" value={inputs.password || ""} onChange={handleChange} required />
                           </div>
 
                          
                           <div className="namebox">
                             <label htmlFor="address"> Confirm Password </label>
-                            <input
-                              type="text"
-                              name="confirmpass"
-                              value={inputs.confirmpass || ""}
-                              onChange={handleChange}
-                            />
+                            <input type="text" name="confirmpass" value={inputs.confirmpass || ""} onChange={handleChange} />
                           </div>
 
                           
@@ -328,7 +258,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                              <button type="submit" className="checkout-btn">Sign up  </button>                       
                           </div>
 
-                          <div className="have-acount">Already have an account ?  <button onClick={onShowLoginPage} >Log in </button> </div>
+                          <div className="have-acount">Already have an account ?  <span onClick={onShowLoginPage} style={{fontWeight:"400"}}>Log in </span> </div>
                          </form>
                           </> 
                           ) : (   //LOGIN PAGE
@@ -337,33 +267,22 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                           <form onSubmit={handleLoginSubmit}>
                            <div className="namebox">
                             <label htmlFor="address">Email or  Mobile No </label>
-                            <input
-                              type="text"
-                              name="uniqueid"
-                              value={inputs.uniqueid || ""}
-                              onChange={handleChange}
-                              required
-                            />
+                            <input type="text" name="uniqueid" value={inputs.uniqueid || ""} onChange={handleChange} required />
                           </div>
 
                          
                           <div className="namebox">
                             <label htmlFor="address">Password</label>
-                            <input
-                              type="text"
-                              name="referral"
-                              value={inputs.referral || ""}
-                              onChange={handleChange}
-                            />
+                            <input type="text" name="referral" value={inputs.referral || ""} onChange={handleChange} />
                           </div>
       
                           <div className="namebox">
                            
                              <div style={{ color: "#FF6600" }}> {Errormsg} </div>  
-                             <button type="submit" className="checkout-btn"> Log In</button>                       
+                             <button type="submit" className="checkout-btn"> {buttonloading ? ( <div class="loader"></div> ) : (<span>Login</span>) } </button>                       
                           </div>
 
-                           <div className="have-acount"> New User ?  <button onClick={onShowRegisterPage}> Sign up </button> </div>
+                           <div className="have-acount"> New User ?  <span onClick={onShowRegisterPage} style={{fontWeight:"400"}}> Sign up </span> </div>
                            </form>
                           </>
                           ) }

@@ -1,18 +1,33 @@
 import React from 'react';
 import Homeitems from '../components/item';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { FaArrowCircleDown, FaArrowCircleRight, FaCartPlus } from "react-icons/fa";
 // import productChef from '../Images/productschef.png'
-import MobileNav from '../components/mobilenav';
+
 
 
 function Home( { products, onAdd , onCheck, onSearch, searchterm, onShow ,deny } ) { 
   const navigate= useNavigate();
 
 
+  const [loading, setLoading] = useState(true);
+ 
+    useEffect(() => {
+      setTimeout(() => setLoading(false),2000);
+    }, [])
+
+
+    if (loading) {
+      return <div class="loader"></div>
+  }
+
+  // If page is not in loading state, display page.
+  else {
+
     return ( 
         <>
-          <MobileNav /> 
+        
         {/* <section className="product-section-img">
                    <img src={productChef} alt=""  />
                    <div className="absolute-text">
@@ -22,10 +37,7 @@ function Home( { products, onAdd , onCheck, onSearch, searchterm, onShow ,deny }
         </section> */}
         <div className="about">
                           
-            <div className="buyarrow">                   
-               <FaArrowCircleDown className='arrowdown'/>
-            </div>
-            <h6>Products</h6>
+           
          </div>
 
         <input type="search" name="" id=""  value={searchterm} placeholder="search..." onChange={ (e)=>onSearch(e.target.value)}/>
@@ -58,6 +70,8 @@ function Home( { products, onAdd , onCheck, onSearch, searchterm, onShow ,deny }
      
    </>
      );
+
+        }
 }
 
 export default Home;

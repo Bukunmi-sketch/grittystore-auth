@@ -29,7 +29,7 @@ function Leftbar( { cartdisplay, onDisplay, onShow,  onUnDisplay, categories }) 
                        <li> <Link to='/about' className="menu-item" onClick={()=>onUnDisplay()}> About us </Link>  </li>
 
                         <h3>Supports</h3>    
-                        <li> <Link to='/' className="menu-item" onClick={()=>onUnDisplay()}> Home </Link>  </li> 
+                        <li> <Link to='/home' className="menu-item" onClick={()=>onUnDisplay()}> Home </Link>  </li> 
                        
                        <li> <Link to='/product' className="menu-item" onClick={()=>onUnDisplay()} > Brands  </Link> </li>
                        <li> <Link to='/Team' className="menu-item"  onClick={()=>onUnDisplay() } > Contact us </Link>  </li>
