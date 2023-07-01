@@ -37,10 +37,10 @@ function Home( { products, onAdd , onCheck, onSearch, searchterm, onShow ,deny }
         </section> */}
         <div className="about">
                           
-           
+        <input type="search" name="" id=""  value={searchterm} placeholder="search..." onChange={ (e)=>onSearch(e.target.value)}/>
          </div>
 
-        <input type="search" name="" id=""  value={searchterm} placeholder="search..." onChange={ (e)=>onSearch(e.target.value)}/>
+       
       <div className="userbox">
     
           {products.filter( (product)=> {

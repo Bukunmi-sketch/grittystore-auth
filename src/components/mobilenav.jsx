@@ -33,13 +33,13 @@ function MobileNav() {
                 <Link to="/explore" class="menu-nav">
                     {location.pathname === "/explore" ? (
                         <>
-                            <span> <FaSearch /> </span>
-                            <h3> <b> Search</b></h3>
+                            <span> <ion-icon name="bag-check"  style={{ fontSize: '1.2em' }}></ion-icon> </span>
+                            <h3> <b> Orders</b></h3>
                         </>
                     ) : (
                         <>
-                            <span> <ion-icon name="search-outline"  style={{ fontSize: '1.2em' }}></ion-icon> </span>
-                            <h3>Search</h3>
+                            <span> <ion-icon name="bag-check-outline"  style={{ fontSize: '1.2em' }}></ion-icon> </span>
+                            <h3>Orders</h3>
                         </>
                     )}
                 </Link>
@@ -79,13 +79,13 @@ function MobileNav() {
                 <Link to="/message" class="menu-nav">
                     { location.pathname === "/message" ? (
                         <>
-                            <span> <ion-icon name="person-circle" style={{ fontSize: '1.2em' }} ></ion-icon> </span>
-                            <h3> <b>Messages</b></h3>
+                            <span> <ion-icon name="person-add" style={{ fontSize: '1.2em' }} ></ion-icon> </span>
+                            <h3> <b>Account</b></h3>
                         </>
                     ) : (
                         <>
-                            <span> <ion-icon name="person-circle-outline" style={{ fontSize: '1.2em' }} ></ion-icon></span>
-                            <h3> Messages</h3>
+                            <span> <ion-icon name="person-add-outline" style={{ fontSize: '1.2em' }} ></ion-icon></span>
+                            <h3> Account</h3>
                         </>
                     )
                     }

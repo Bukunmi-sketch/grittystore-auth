@@ -48,7 +48,7 @@ function HomeHeader({ countCartitems, cartdisplay, onDisplay, onShow, onShowAuth
 
 
           <div className='auth-box'>
-             <ion-icon name="person-circle-outline" style={{ fontSize: '1.9em' }} onClick={() => onShowAuthModal()}></ion-icon>
+             <ion-icon name="search-outline" style={{ fontSize: '1.9em' }} ></ion-icon>
           </div>
 
 
