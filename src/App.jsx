@@ -80,9 +80,9 @@ function App() {
   async function getProduce() {
     setError("wait a minute ,fetching products");
     try {
-     // const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+   //   const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
-      const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getproducts.php";
+      const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
 
 
       const response = await axios.get(API_LINK,
@@ -113,7 +113,7 @@ function App() {
  // const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
     //    const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
     //   const API_LINK="https://afrimamafarms.com/endpoint/Api/getproducts.php";  
-   const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getgritty.php";
+   const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
     const response = await axios.get(API_LINK,
       {
         headers: {
@@ -129,10 +129,10 @@ function App() {
   async function getCategories() {
     setError("wait a minute ,fetching categories");
     try {
-      const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
+     // const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getCategories.php";  
       //    const API_LINK="https://afrimamafarms.com/endpoint/Api/getCategories.php";
-    //  const API_LINK="http://afrimamafarms.onlinewebshop.net/endpoint/Api/getCategories.php";
+      const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getCategories.php";
       const categoryresponse = await axios.get(API_LINK,
         {
           headers: {
@@ -403,7 +403,7 @@ function App() {
           onHideAuthModal={onHideAuthModal}
           userToken={userToken}
           />
-          <Home onAdd={onAdd} onShow={show} onCheck={check} onSearch={searchchange} searchterm={searchterm} products={products} />
+          <Home onAdd={onAdd} onShow={show} onCheck={check} onSearch={searchchange} searchterm={searchterm} products={products} message={message}/>
           <MobileNav /> 
            </>
           } />

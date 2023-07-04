@@ -30,8 +30,8 @@ function MobileNav() {
                     )}
                 </Link>
 
-                <Link to="/explore" class="menu-nav">
-                    {location.pathname === "/explore" ? (
+                <Link to="/orders" class="menu-nav">
+                    {location.pathname === "/orders" ? (
                         <>
                             <span> <ion-icon name="bag-check"  style={{ fontSize: '1.2em' }}></ion-icon> </span>
                             <h3> <b> Orders</b></h3>
@@ -76,8 +76,8 @@ function MobileNav() {
                     }
                 </Link>
 
-                <Link to="/message" class="menu-nav">
-                    { location.pathname === "/message" ? (
+                <Link to="/account" class="menu-nav">
+                    { location.pathname === "/account" ? (
                         <>
                             <span> <ion-icon name="person-add" style={{ fontSize: '1.2em' }} ></ion-icon> </span>
                             <h3> <b>Account</b></h3>
