@@ -3,6 +3,16 @@ import first from '../Images/14.jpg'
 
 
 function Sectiona({categories}) {
+    const imagestyle={
+       
+        borderRadius:"4px",
+        // height:"150px",
+        border:"2px solid white"
+        
+     }
+   // const linkurl="http://localhost/New/Grittystore/Images/category-img/";
+    const linkurl="http://grittystore.onlinewebshop.net/endpoint/Images/category-img/";
+
     return ( 
         <>
         <section className="sectiona" style={{border:"1px solid transparent"}}>
@@ -33,10 +43,13 @@ function Sectiona({categories}) {
 
              <div className="flex-container">
                  { categories.map( (category) =>
+                 <div className="box-container">
                     <div className="box">
-                    <p>{category.name}</p>
+                         <img src={`${linkurl}${category.category_picture}`} className='box' alt={ category.product_picture } style={ imagestyle } />
+                         <p style={{zIndex:"10", color:"blue",fontWeight:"bold", fontFamily:"DM sans"}}>{category.name}</p>
                     {/* <p>lorem ipsum dolor sit amet,</p> */}
                 </div> 
+                </div>
                  )         
               }
              </div>

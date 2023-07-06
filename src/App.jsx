@@ -129,7 +129,7 @@ function App() {
   async function getCategories() {
     setError("wait a minute ,fetching categories");
     try {
-     // const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
+     /// const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getCategories.php";  
       //    const API_LINK="https://afrimamafarms.com/endpoint/Api/getCategories.php";
       const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getCategories.php";
