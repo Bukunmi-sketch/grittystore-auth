@@ -15,14 +15,12 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
   const navigate = useNavigate();
   
 
-  const [inputs, setinputs] =useState({
-    payment_status: "unpaid",
-    order_status: "incomplete",
-  });
+  const [inputs, setinputs] =useLocalStorage("forms",{});
   const [confirmpay, setconfirmpay] = useState(false);
   const [Errormsg, setErrormsg] = useState("");
   const [localgov, setLga] = useState([]);
   const [buttonloading, setbuttonLoading] = useState(false);
+
 
 
   const options = ["", "Oyo", "Lagos", "Osun", "Ondo"];
@@ -78,7 +76,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
     }));
     //console.log(inputs);
 
-    const API = "http://localhost/sales/Grittystore/Api/RegisterAccount.php";
+    const API = "http://localhost/New/Grittystore/Api/RegisterEmailAccount.php";
 
     axios
       .post(API, inputs, {
@@ -225,6 +223,14 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                             </div>
                           </div>
 
+                          <div className="namebox">
+                              <label htmlFor="address">Local Government </label>
+                              <select name="lga" onChange={handleChange} required >
+                                {localgov.map((lga) => ( <option key={lga} value={lga} onChange={handleChange} > {lga} </option> ))}
+                              </select>
+                            </div>
+                          
+{/* 
                           <div className="flexnameboxb">
                             <div className="namebox">
                               <label htmlFor="phono_no">Phone No</label>
@@ -237,7 +243,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                                 {localgov.map((lga) => ( <option key={lga} value={lga} onChange={handleChange} > {lga} </option> ))}
                               </select>
                             </div>
-                          </div>
+                          </div> */}
 
                           <div className="namebox">
                             <label htmlFor="address"> Password </label>

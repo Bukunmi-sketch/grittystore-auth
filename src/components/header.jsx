@@ -47,7 +47,8 @@ function Header({ countCartitems, cartdisplay, onDisplay, onShow, onShowAuthModa
 
 
 
-          <div className='auth-box'>
+          <div className='auth-box' style={{border:"red"}}>
+            <FaUserCircle onClick={() => onShowAuthModal()}/>
              <ion-icon name="person-circle-outline" style={{ fontSize: '1.9em' }} onClick={() => onShowAuthModal()}></ion-icon>
           </div>
 
