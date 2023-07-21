@@ -31,6 +31,7 @@ import MobileNav from './components/mobilenav';
 import Leftbar from './components/leftbar';
 import HomeHeader from './components/homeheader';
 import Home from './pages/home';
+import Itemheader from './components/itemheader';
 
 
 
@@ -80,9 +81,9 @@ function App() {
   async function getProduce() {
     setError("wait a minute ,fetching products");
     try {
-   //   const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+     const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
-      const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
+    //  const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
 
 
       const response = await axios.get(API_LINK,
@@ -110,10 +111,10 @@ function App() {
   }
 
   async function searchproducts() {
- // const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
     //    const API_LINK="http://api.afrimamafarms.com/Api/getproducts.php";  
     //   const API_LINK="https://afrimamafarms.com/endpoint/Api/getproducts.php";  
-   const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
+  // const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
     const response = await axios.get(API_LINK,
       {
         headers: {
@@ -129,10 +130,10 @@ function App() {
   async function getCategories() {
     setError("wait a minute ,fetching categories");
     try {
-     /// const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
+      const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
       //  const API_LINK="http://api.afrimamafarms.com/Api/getCategories.php";  
       //    const API_LINK="https://afrimamafarms.com/endpoint/Api/getCategories.php";
-      const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getCategories.php";
+     // const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getCategories.php";
       const categoryresponse = await axios.get(API_LINK,
         {
           headers: {
@@ -365,7 +366,23 @@ function App() {
           <Route path='/track/:id' element={<Track Loader={Loader} unLoader={unLoader} />} />
           <Route path='/success/:id' element={<Success Loader={Loader} unLoader={unLoader} />} />
           {/* <Route path='/complete/' element={< Klumpsuccess/> } /> */}
-          <Route path='/eachitem/:productid' element={<EachItem checkout={checkout} onAdd={onAdd} onRemove={onRemove} />} />
+          <Route path='/eachitem/:productid' element={
+          <>
+           <Itemheader
+          countCartitems={cartitems.length}
+          onDisplay={display}
+          cartdisplay={cartdisplay}
+          onShow={show}
+          onUnDisplay={undisplay}
+          onUnShow={unshow}
+          authModal={authModal}
+          onShowAuthModal={onShowAuthModal}
+          onHideAuthModal={onHideAuthModal}
+          userToken={userToken}
+          // itemqty={cartitems[0].qty}
+          />
+          <EachItem checkout={checkout} onAdd={onAdd} onRemove={onRemove} />
+          </>} />
 
           <Route path='/' element={
             <>

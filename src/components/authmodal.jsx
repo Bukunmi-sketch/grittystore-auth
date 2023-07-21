@@ -27,12 +27,26 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
 
   //handle the changes
   const handleChange = (event) => {
+    // const name = event.target.name;
+    // const value = event.target.value.charAt(0).toUpperCase()+ event.target.value.slice(1);
+    // setinputs((values) => ({
+    //   ...values, [name]: value,
+    // }));
+
+
     const name = event.target.name;
     const value = event.target.value.charAt(0).toUpperCase()+ event.target.value.slice(1);
-
-   // console.log(addedcart.toString());
+    
     setinputs((values) => ({
-      ...values, [name]: value,
+      ...values,
+      [name]: value,
+      // "firstname":"",
+      // "lastname":"",
+      // "email":"",
+      // "lga":"",
+      // "state":"",
+      // "password":"",
+      // "confirmpass":""
     }));
 
    // console.log(inputs);
@@ -67,16 +81,10 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
     event.preventDefault();
     Loader();
 
-    const name = event.target.name;
-    const value = event.target.value;
-    console.log(addedcart.toString());
-    setinputs((values) => ({
-      ...values,
-      [name]: value,
-    }));
+  
     //console.log(inputs);
 
-    const API = "http://localhost/New/Grittystore/Api/RegisterEmailAccount.php";
+    const API = "http://localhost/New/Grittystore/Api/registerEmailAccount.php";
 
     axios
       .post(API, inputs, {
@@ -200,32 +208,32 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                           <div className="flexnameboxa">
                             <div className="namebox">
                               <label htmlFor="Name">FirstName: </label>
-                              <input type="text" name="firstname" value={inputs.firstname || ""} onChange={handleChange} required />
+                              <input type="text" name="firstname" value={inputs.firstname || ""} onChange={handleChange} />
                             </div>
 
                             <div className="namebox">
                               <label htmlFor="Name">LastName: </label>
-                              <input type="text" name="lastname" value={inputs.lastname || ""} onChange={handleChange} required />
+                              <input type="text" name="lastname" value={inputs.lastname || ""} onChange={handleChange} />
                             </div>
                           </div>
 
                           <div className="flexnameboxb">
                             <div className="namebox">
                               <label htmlFor="address">State </label>
-                              <select name="state" onChange={handleChange} required >
+                              <select name="state" onChange={handleChange} >
                                 {options.map((option) => ( <option key={option} value={option} onChange={handleChange} > {option} </option> ))}
                               </select>
                             </div>
 
                             <div className="namebox">
                               <label htmlFor="email">Email Address</label>
-                              <input type="email" name="email" value={inputs.email || ""} onChange={handleChange} required />
+                              <input type="email" name="email" value={inputs.email || ""} onChange={handleChange} />
                             </div>
                           </div>
 
                           <div className="namebox">
                               <label htmlFor="address">Local Government </label>
-                              <select name="lga" onChange={handleChange} required >
+                              <select name="lga" onChange={handleChange} >
                                 {localgov.map((lga) => ( <option key={lga} value={lga} onChange={handleChange} > {lga} </option> ))}
                               </select>
                             </div>
@@ -234,12 +242,12 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                           <div className="flexnameboxb">
                             <div className="namebox">
                               <label htmlFor="phono_no">Phone No</label>
-                              <input type="number" name="phone" value={inputs.phone || ""} onChange={handleChange} required />
+                              <input type="number" name="phone" value={inputs.phone || ""} onChange={handleChange} />
                             </div>
 
                             <div className="namebox">
                               <label htmlFor="address">Local Government </label>
-                              <select name="lga" onChange={handleChange} required >
+                              <select name="lga" onChange={handleChange} >
                                 {localgov.map((lga) => ( <option key={lga} value={lga} onChange={handleChange} > {lga} </option> ))}
                               </select>
                             </div>
@@ -247,7 +255,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
 
                           <div className="namebox">
                             <label htmlFor="address"> Password </label>
-                            <input type="text" name="password" value={inputs.password || ""} onChange={handleChange} required />
+                            <input type="text" name="password" value={inputs.password || ""} onChange={handleChange} />
                           </div>
 
                          
@@ -273,7 +281,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                           <form onSubmit={handleLoginSubmit}>
                            <div className="namebox">
                             <label htmlFor="address">Email or  Mobile No </label>
-                            <input type="text" name="uniqueid" value={inputs.uniqueid || ""} onChange={handleChange} required />
+                            <input type="text" name="uniqueid" value={inputs.uniqueid || ""} onChange={handleChange} />
                           </div>
 
                          
@@ -283,7 +291,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                           </div>
       
                           <div className="namebox">
-                           
+                    
                              <div style={{ color: "#FF6600" }}> {Errormsg} </div>  
                              <button type="submit" className="checkout-btn"> {buttonloading ? ( <div class="loader"></div> ) : (<span>Login</span>) } </button>                       
                           </div>

@@ -161,14 +161,14 @@
 }
 
 .checkout-btn{
-  padding:15px 20px;
+  padding:10px 20px;
   background-color:black;
   border-radius:2px;
   border: 1px solid transparent;
   color: white;
   font-weight: bold;
   width:100%;
-  font-size:1em;
+  font-size:0.8em;
   margin:5px 0 0 0;
   font-family: "Montserrat", sans-serif;
 }

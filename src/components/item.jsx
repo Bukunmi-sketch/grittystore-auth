@@ -21,8 +21,8 @@ function Homeitems( { product , onAdd ,onShow} ) {
         border:"1px solid red"
      } 
 
- //const linkurl="http://localhost/New/Grittystore/Images/Product-img/";
- const linkurl="http://grittystore.onlinewebshop.net/endpoint/Images/product-img/";
+ const linkurl="http://localhost/New/Grittystore/Images/Product-img/";
+ //const linkurl="http://grittystore.onlinewebshop.net/endpoint/Images/product-img/";
 
     return ( 
       <AnimatePresence>
@@ -43,6 +43,7 @@ function Homeitems( { product , onAdd ,onShow} ) {
                <div className="productname"> { product.product_name} </div>  
            </div> 
 
+         
                <div className="desc-box">
                     <p className="product-brand">{ product.brand }</p>
                     <p className="price">${ parseFloat(product.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') }  </p>
