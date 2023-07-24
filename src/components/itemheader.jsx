@@ -17,7 +17,7 @@ function Itemheader({ countCartitems, cartdisplay, onDisplay, onShow, onShowAuth
       <header>
         <div className='bar-box'>
           {/* <FaBars className="bars" style={{ color: 'orangered', fontSize: '1.5em' }} onClick={() => onDisplay()} /> */}
-          <ion-icon name="arrow-back-outline" style={ {height:'30px', weight:"30px"}} onClick={() => navigate(-1)}></ion-icon>
+          <ion-icon name="arrow-back-outline" style={{ height:'50px', weight:"30px"}} onClick={() => navigate(-1)}></ion-icon>
           {/* <img src={menu} alt="" style={ {height:'30px', weight:"30px"}} onClick={()=>onDisplay()}/> */}
         </div>
 
@@ -30,11 +30,6 @@ function Itemheader({ countCartitems, cartdisplay, onDisplay, onShow, onShowAuth
 
         </div>
       </header>
-
-
-
-
-
 
 
     </>

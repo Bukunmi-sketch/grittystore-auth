@@ -8,7 +8,7 @@
 .imagebox{
     border: 1px solid green;
     width: 50%;
-    padding: 30px;
+    /* padding: 30px; */
 }
 
 .imagebox img{
