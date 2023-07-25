@@ -129,7 +129,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
     }));
     //console.log(inputs);
 
-    const API = "http://localhost/sales/Grittystore/Api/LoginAccount.php";
+    const API = "http://localhost/New/Grittystore/Api/LoginAccount.php";
 
     axios
       .post(API, inputs, {
@@ -143,7 +143,7 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
       //    setOrders(response.data);
          console.log(response.data);
            if(response.data.status !== 500){
-            navigate(`/page/${response.data.userid} `);
+            navigate(`/home/${response.data.userid} `);
             onClear();
             onUnShow();
             setbuttonLoading(false);

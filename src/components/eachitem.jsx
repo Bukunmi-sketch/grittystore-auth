@@ -27,8 +27,8 @@ function EachItem({ onAdd, onRemove }) {
   console.log("productid", productid);
 
   async function getProductDetails() {
-    const API = `http://localhost/New/Grittystore/Api/productdetails.php?id=${productid}`;
-    // const API=`http://afrimamafarms.onlinewebshop.net/endpoint/Api/productdetails.php?id=${productid}`;
+ //   const API = `http://localhost/New/Grittystore/Api/productdetails.php?id=${productid}`;
+     const API=`http://afrimamafarms.onlinewebshop.net/endpoint/Api/productdetails.php?id=${productid}`;
     const res = await axios.get(API, {
       headers: {
         "content-type": "application/json",
@@ -40,8 +40,8 @@ function EachItem({ onAdd, onRemove }) {
     // console.log("response", res);
   }
 
-  const linkurl = "http://localhost/New/Grittystore/Images/Product-img/";
-  // const linkurl = "http://afrimamafarms.onlinewebshop.net/endpoint/Images/Product-img/";
+ // const linkurl = "http://localhost/New/Grittystore/Images/Product-img/";
+   const linkurl = "http://afrimamafarms.onlinewebshop.net/endpoint/Images/product-img/";
 
   return (
     <>

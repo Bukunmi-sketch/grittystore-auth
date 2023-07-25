@@ -21,8 +21,8 @@ function Homeitems( { product , onAdd ,onShow} ) {
         border:"1px solid red"
      } 
 
- const linkurl="http://localhost/New/Grittystore/Images/Product-img/";
- //const linkurl="http://grittystore.onlinewebshop.net/endpoint/Images/product-img/";
+ //const linkurl="http://localhost/New/Grittystore/Images/Product-img/";
+ const linkurl="http://grittystore.onlinewebshop.net/endpoint/Images/product-img/";
 
     return ( 
       <AnimatePresence>
