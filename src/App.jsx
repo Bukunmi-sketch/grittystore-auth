@@ -30,8 +30,11 @@ import EachItem from './components/eachitem';
 import MobileNav from './components/mobilenav';
 import Leftbar from './components/leftbar';
 import HomeHeader from './components/homeheader';
+import Orders from './pages/orders';
 import Home from './pages/home';
 import Itemheader from './components/itemheader';
+import Notifications from './pages/notification';
+import Accounts from './pages/account';
 
 
 
@@ -81,8 +84,8 @@ function App() {
   async function getProduce() {
     setError("wait a minute ,fetching products");
     try {
-   //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
-      const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
+      //  const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+      const API_LINK = "http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
 
 
       const response = await axios.get(API_LINK,
@@ -110,8 +113,8 @@ function App() {
   }
 
   async function searchproducts() {
- // const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
-   const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
+    // const API_LINK = "http://localhost/New/Grittystore/Api/getproducts.php";
+    const API_LINK = "http://grittystore.onlinewebshop.net/endpoint/Api/getproducts.php";
     const response = await axios.get(API_LINK,
       {
         headers: {
@@ -127,8 +130,8 @@ function App() {
   async function getCategories() {
     setError("wait a minute ,fetching categories");
     try {
-     // const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
-      const API_LINK="http://grittystore.onlinewebshop.net/endpoint/Api/getCategories.php";
+      // const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
+      const API_LINK = "http://grittystore.onlinewebshop.net/endpoint/Api/getCategories.php";
       const categoryresponse = await axios.get(API_LINK,
         {
           headers: {
@@ -362,22 +365,22 @@ function App() {
           <Route path='/success/:id' element={<Success Loader={Loader} unLoader={unLoader} />} />
           {/* <Route path='/complete/' element={< Klumpsuccess/> } /> */}
           <Route path='/eachitem/:productid' element={
-          <>
-           <Itemheader
-          countCartitems={cartitems.length}
-          onDisplay={display}
-          cartdisplay={cartdisplay}
-          onShow={show}
-          onUnDisplay={undisplay}
-          onUnShow={unshow}
-          authModal={authModal}
-          onShowAuthModal={onShowAuthModal}
-          onHideAuthModal={onHideAuthModal}
-          userToken={userToken}
-          // itemqty={cartitems[0].qty}
-          />
-          <EachItem checkout={checkout} onAdd={onAdd} onRemove={onRemove} />
-          </>} />
+            <>
+              <Itemheader
+                countCartitems={cartitems.length}
+                onDisplay={display}
+                cartdisplay={cartdisplay}
+                onShow={show}
+                onUnDisplay={undisplay}
+                onUnShow={unshow}
+                authModal={authModal}
+                onShowAuthModal={onShowAuthModal}
+                onHideAuthModal={onHideAuthModal}
+                userToken={userToken}
+              // itemqty={cartitems[0].qty}
+              />
+              <EachItem checkout={checkout} onAdd={onAdd} onRemove={onRemove} />
+            </>} />
 
           <Route path='/' element={
             <>
@@ -394,30 +397,52 @@ function App() {
                 userToken={userToken}
               />
               <Sectiona categories={categories} />
-              <Main onAdd={onAdd} onShow={show} onSearch={searchchange} searchterm={searchterm} products={products} error={Error}  />
+              <Main onAdd={onAdd} onShow={show} onSearch={searchchange} searchterm={searchterm} products={products} error={Error} />
               <Sectionb />
               <Footer onUnDisplay={undisplay} scrollto={scrollto} />
             </>
           } />
           <Route path='/team' element={<Teams />} />
           <Route path='/product' element={<Products onAdd={onAdd} onShow={show} onCheck={check} onSearch={searchchange} searchterm={searchterm} products={products} />} />
+          <Route path='/orders' element={
+            <>
+              <Orders />
+              <MobileNav />
+            </>
+          } />
+
+          <Route path='/notification' element={
+            <>
+              <Notifications />
+              <MobileNav />
+            </>
+          } />
+
+          <Route path='/account' element={
+            <>
+              <Accounts />
+              <MobileNav />
+            </>
+          } />
+
+
           <Route path='/home' element={
             <>
-          <HomeHeader
-          countCartitems={cartitems.length}
-          onDisplay={display}
-          cartdisplay={cartdisplay}
-          onShow={show}
-          onUnDisplay={undisplay}
-          onUnShow={unshow}
-          authModal={authModal}
-          onShowAuthModal={onShowAuthModal}
-          onHideAuthModal={onHideAuthModal}
-          userToken={userToken}
-          />
-          <Home onAdd={onAdd} onShow={show} onCheck={check} onSearch={searchchange} searchterm={searchterm} products={products} message={message}/>
-          <MobileNav /> 
-           </>
+              <HomeHeader
+                countCartitems={cartitems.length}
+                onDisplay={display}
+                cartdisplay={cartdisplay}
+                onShow={show}
+                onUnDisplay={undisplay}
+                onUnShow={unshow}
+                authModal={authModal}
+                onShowAuthModal={onShowAuthModal}
+                onHideAuthModal={onHideAuthModal}
+                userToken={userToken}
+              />
+              <Home onAdd={onAdd} onShow={show} onCheck={check} onSearch={searchchange} searchterm={searchterm} products={products} message={message} />
+              <MobileNav />
+            </>
           } />
           <Route path='/about' element={<Aboutus />} />
           {/* <Route path='/login' element={<Login/> } />
@@ -426,7 +451,7 @@ function App() {
 
         </Routes>
 
-      
+
       </BrowserRouter>
 
 

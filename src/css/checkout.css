@@ -237,7 +237,7 @@
   font-size: 0.9em;
 }
 
-.namebox input[type=text],.namebox input[type=email],.namebox input[type=number], select{
+.namebox input[type=text],.namebox input[type=email],.namebox input[type=number], .namebox input[type=password], select{
   width:100%;
   box-sizing:border-box;
   outline:none;

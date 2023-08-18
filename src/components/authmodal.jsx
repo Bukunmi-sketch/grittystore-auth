@@ -10,6 +10,7 @@ import { FaCartPlus,FaBars, FaTrash, FaHome, FaTeamspeak, FaInfo,FaShoppingBag, 
 import pica from '../Images/smallproduct.png'
 import logo from '../Images/afrimamalogo.png'
 import Klumpsuccess from '../pages/klumpsuccess';
+import Cookies from 'js-cookie'
 
 function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthModal, showRegisterPage, onShowRegisterPage, onShowLoginPage , setUserToken }) {
   const navigate = useNavigate();
@@ -99,9 +100,9 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
          console.log(response.data);
            if(response.data.status !== 500){
             navigate(`/page/${response.data.userid} `);
-            onClear();
-            onUnShow();
-            unLoader();
+            // onClear();
+            // onUnShow();
+            // unLoader();
            }else{
              setErrormsg(response.data.message);
              unLoader();
@@ -122,14 +123,13 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
 
     const name = event.target.name;
     const value = event.target.value;
-    console.log(addedcart.toString());
     setinputs((values) => ({
       ...values,
       [name]: value,
     }));
     //console.log(inputs);
 
-    const API = "http://localhost/New/Grittystore/Api/LoginAccount.php";
+    const API = "http://localhost/New/Grittystore/Api/LoginEmailAccount.php";
 
     axios
       .post(API, inputs, {
@@ -143,9 +143,11 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
       //    setOrders(response.data);
          console.log(response.data);
            if(response.data.status !== 500){
-            navigate(`/home/${response.data.userid} `);
-            onClear();
-            onUnShow();
+            Cookies.set("token", `${response.data.token}`, {expires: 1});
+            navigate(`home`);
+            // onClear();
+            // onUnShow();
+            onHideAuthModal()
             setbuttonLoading(false);
            }else{
              setErrormsg(response.data.message);
@@ -281,13 +283,13 @@ function AuthModalBox( { onAuthModal, authModal, Loader, unLoader, onHideAuthMod
                           <form onSubmit={handleLoginSubmit}>
                            <div className="namebox">
                             <label htmlFor="address">Email or  Mobile No </label>
-                            <input type="text" name="uniqueid" value={inputs.uniqueid || ""} onChange={handleChange} />
+                            <input type="email" name="email" value={inputs.email || ""} onChange={handleChange} />
                           </div>
 
                          
                           <div className="namebox">
                             <label htmlFor="address">Password</label>
-                            <input type="text" name="referral" value={inputs.referral || ""} onChange={handleChange} />
+                            <input type="password" name="password" value={inputs.password || ""} onChange={handleChange} />
                           </div>
       
                           <div className="namebox">

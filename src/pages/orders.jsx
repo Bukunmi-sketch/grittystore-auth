@@ -1,6 +1,19 @@
+import React from 'react';
+import Homeitems from '../components/item';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import HomeHeader from '../components/homeheader';
+import MobileNav from '../components/mobilenav';
+import Cookies from 'js-cookie'
+import axios from 'axios';
+import DynamicHeader from '../components/dynamicHeader';
+
+
 function Orders() {
+    const navigate = useNavigate();
 
     const [loading, setLoading] = useState(true);
+    const UserToken = Cookies.get('token');
 
     useEffect(() => {
         getUserOrderDetails();
@@ -9,15 +22,27 @@ function Orders() {
        // delayLoader();
     }, []);
 
-    console.log("id", id);
+    useEffect(() => {
+        const UserToken = Cookies.get('token');
+        if (!UserToken) {
+          navigate('/');
+        }
+      }, [navigate]);
+    
+
+   // console.log("id", id);
 
     async function getUserOrderDetails() {
-        //    const API = `http://localhost/websites/mamapi/Api/orderdetails.php?id=${id}`;
-        const API = `http://api.afrimamafarms.com/Api/userOrderDetails.php?id=${id} `;
-        //  const API=`https://afrimamafarms.com/endpoint/Api/orderdetails.php?id=${id} `;
+
+      //  const bearerToken = 'your-bearer-token';
+
+        //const API = `http://localhost/websites/GrittyStore/Api/userOrders.php`;
+        //const API = `http://api.afrimamafarms.com/Api/userOrders.php`;
+      
         const res = await axios.get(API, {
             headers: {
                 "content-type": "application/json",
+                Authorization: `Bearer ${UserToken}`
             },
         });
         setInputs(res.data);
@@ -36,7 +61,12 @@ function Orders() {
 
 
         return (
-            <>
+           <>
+           <DynamicHeader title="Orders" />
+           <div className="home-container" style={{marginTop:"70px"}}>
+
+            </div>
+           
             </>
         );
 

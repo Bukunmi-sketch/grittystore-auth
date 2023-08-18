@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { FaArrowCircleDown, FaArrowCircleRight, FaCartPlus } from "react-icons/fa";
 import productChef from '../Images/productschef.png'
 
+import Cookies from 'js-cookie'
 
 
 function Home({ products, onAdd, onCheck, onSearch, searchterm, onShow, deny, message }) {
@@ -16,6 +17,14 @@ function Home({ products, onAdd, onCheck, onSearch, searchterm, onShow, deny, me
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
   }, [])
+
+
+  useEffect(() => {
+    const UserToken = Cookies.get('token');
+    if (!UserToken) {
+      navigate('/');
+    }
+  }, [navigate]);
 
 
   if (loading) {

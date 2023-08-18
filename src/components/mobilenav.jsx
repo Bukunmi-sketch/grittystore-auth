@@ -12,11 +12,11 @@ function MobileNav() {
 
         // < !------------------------BOTTOM NAV FOR MOBILE PHONES----------------- ---------------->
 
-        <nav class="bottom">
+        <nav className="bottom">
 
-            <div class="mobile-bottomnav">
+            <div className="mobile-bottomnav">
 
-                <Link to="/home" class="menu-nav" id="message-notifications">
+                <Link to="/home" className="menu-nav" id="message-notifications">
                     {location.pathname === "/home" ? (
                         <>
                             <span> <ion-icon name="home" style={{ fontSize: '1.2em' }}></ion-icon> </span>
@@ -76,7 +76,7 @@ function MobileNav() {
                     }
                 </Link>
 
-                <Link to="/account" class="menu-nav">
+                <Link to="/account" className="menu-nav">
                     { location.pathname === "/account" ? (
                         <>
                             <span> <ion-icon name="person-add" style={{ fontSize: '1.2em' }} ></ion-icon> </span>
