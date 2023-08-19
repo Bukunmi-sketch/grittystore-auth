@@ -2,12 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { FaCartPlus,FaBars,  FaTimes, FaSearch, FaUser, FaUserCircle, FaUserAlt, FaRegUserCircle } from "react-icons/fa";
+import Cookies from 'js-cookie'
 import pica from '../Images/smallproduct.png'
 import logo from '../Images/afrimamalogo.png'
 
 function Leftbar( { cartdisplay, onDisplay, onShow,  onUnDisplay, categories }) {
 
    const navigate= useNavigate();
+
+   function logout(){
+    Cookies.remove("token")
+    navigate('/');
+    console.log("clear")
+   }
 
      return ( 
          <div className="leftnav" >
@@ -33,7 +40,8 @@ function Leftbar( { cartdisplay, onDisplay, onShow,  onUnDisplay, categories }) 
                        
                        <li> <Link to='/product' className="menu-item" onClick={()=>onUnDisplay()} > Brands  </Link> </li>
                        <li> <Link to='/Team' className="menu-item"  onClick={()=>onUnDisplay() } > Contact us </Link>  </li>
-                       <li> <Link to='/about' className="menu-item" onClick={()=>onUnDisplay()}> About us </Link>  </li>    
+                       <li> <Link to='/about' className="menu-item" onClick={()=>onUnDisplay()}> About us </Link>  </li>  
+                       <li> <div className="menu-item" onClick={()=>logout()}> Logout </div>  </li>    
 
                </ul>  
                                

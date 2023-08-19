@@ -16,14 +16,12 @@ function Accounts() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const UserToken = Cookies.get('token');
-    const [userAccountData, setUserAccountData] = useState(null);
+    const [userAccountData, setUserAccountData] = useState([]);
 
-    //     useEffect(() => {
-    //         getUserAccountDetails();
-    //         setTimeout(() => setLoading(false), 2000);
-    //         window.scrollTo({ top: 0, behavior: "smooth" });
-    //        // delayLoader();
-    //     }, []);
+        useEffect(() => {
+            setTimeout(() => setLoading(false), 2000);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }, []);
 
     //     useEffect(() => {
     //         const UserToken = Cookies.get('token');
@@ -66,16 +64,20 @@ function Accounts() {
                 console.log('usersdata', response.data)
                 console.log('usersResponseStatus', response.status)
                 console.log('usersStatusText', response.statusText)
-                setUserAccountData(response.data); // Store fetched data in state
+                setUserAccountData(response.data[0]); // Store fetched data in state
                 setLoading(false); // Update loading state
             } catch (error) {
                 console.log(error);
-                if(error.response.status == 401 || error.response.statusText == "Unauthorized" || error.response.status == "405" || error.response.data =="Unauthorized key: Expired token" ){
-                //    Cookies.remove("token")
-                //    navigate('/');
+                if (error.response.status == 401 || error.response.status == "405") {
+                    Cookies.remove("token")
+                    navigate('/');
+                } else if (error.response.statusText == "Unauthorized" && error.response.data == "Unauthorized key: Expired token") {
+                    Cookies.remove("token")
+                    navigate('/');
                 }
                 //
-                 console.log('usersmessage',error.message)
+
+                console.log('usersmessage', error.message)
                 // console.log('userserrorStatus',error.response.status)
                 // console.log('usersStatusText',error.response.statusText)
             }
@@ -90,18 +92,11 @@ function Accounts() {
         }
     }, [UserToken, navigate]);
 
-
-
-
-
     if (loading) {
         return <div className="loader" style={{ margin: "50vh auto" }}></div>
     }
-
     // If page is not in loading state, display page.
     else {
-
-
         return (
             <>
                 <DynamicHeader title="Account" />
@@ -110,8 +105,12 @@ function Accounts() {
                     {userAccountData && (
                         <div>
                             {/* Render user account details */}
-                            <p>User ID: {userAccountData.id}</p>
+                            <p>Name : {userAccountData.firstname} {userAccountData.lastname}</p>
                             <p>Email: {userAccountData.email}</p>
+                            <p>Account Status: {userAccountData.accountStatus}</p>
+                            <p> State : {userAccountData.state}</p>
+                            <p> Joined: {userAccountData.reg_date}</p>
+                            <p> Local Government: {userAccountData.country}</p>
                             {/* ... other account data */}
                         </div>
                     )}
