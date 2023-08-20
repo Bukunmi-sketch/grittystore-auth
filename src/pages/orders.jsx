@@ -35,7 +35,7 @@ function Orders() {
                         Authorization: `Bearer ${UserToken}`,
                     },
                 });
-                console.log('usersdata', response.data)
+                console.log('usersorder', response.data[0])
                 console.log('usersResponseStatus', response.status)
                 console.log('usersStatusText', response.statusText)
                 setuserOrderData(response.data[0]); // Store fetched data in state
@@ -48,6 +48,8 @@ function Orders() {
                 } else if (error.response.statusText == "Unauthorized" && error.response.data == "Unauthorized key: Expired token") {
                     Cookies.remove("token")
                     navigate('/');
+                } else if (error.response.statusText == "Not Found" && error.response.status == "404") {
+                    setuserOrderData({message:"not found"})
                 }
                 //
 
@@ -79,7 +81,7 @@ function Orders() {
                     {userOrderData && (
                         <div>
                             {/* Render user account details */}
-                            <p>Name : {userOrderData.firstname} {userOrderData.lastname}</p>
+                            <p>Name : {userOrderData.message} {userOrderData.lastname}</p>
                             <p>Email: {userOrderData.email}</p>
                             <p>Account Status: {userOrderData.accountStatus}</p>
                             <p> State : {userOrderData.state}</p>
