@@ -64,7 +64,7 @@ function MobileNav() {
                 <Link to="/notification" class="menu-nav">
                     { location.pathname === "/notification" ? (
                         <>
-                            <span> <FaBell/> </span>
+                            <span> <ion-icon name="notifications" style={{ fontSize: '1.2em' }}></ion-icon></span>
                             <h3> <b>Notifications </b></h3>
                         </>
                     ) : (

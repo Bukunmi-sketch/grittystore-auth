@@ -1,0 +1,3 @@
+show password signup
+keep me signed in
+change signup to Create Account

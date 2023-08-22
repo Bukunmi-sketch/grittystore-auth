@@ -111,6 +111,8 @@ function Accounts() {
                             <p> State : {userAccountData.state}</p>
                             <p> Joined: {userAccountData.reg_date}</p>
                             <p> Local Government: {userAccountData.country}</p>
+                            <p> Total Items bought: {userAccountData.country}</p>
+                            <p> Shipping Address: {userAccountData.country}</p>
                             {/* ... other account data */}
                         </div>
                     )}

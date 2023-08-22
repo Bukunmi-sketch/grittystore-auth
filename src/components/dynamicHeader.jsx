@@ -17,7 +17,7 @@ function DynamicHeader({ title }) {
       <header>
         <div className='bar-box'>
           {/* <FaBars className="bars" style={{ color: 'orangered', fontSize: '1.5em' }} onClick={() => onDisplay()} /> */}
-          <img src={menu} alt="" style={ {height:'30px', weight:"30px"}} />
+          <ion-icon name="arrow-back-outline" style={{ fontSize: '1.9em' }}></ion-icon>
         </div>
 
         <h4 className='logo'>
@@ -27,7 +27,7 @@ function DynamicHeader({ title }) {
         <div className="otherside"  >
 
           <div className='auth-box' style={{border:"red"}}>
-            <FaUserCircle onClick={() => onShowAuthModal()}/>
+            {/* <FaUserCircle onClick={() => onShowAuthModal()}/> */}
              <ion-icon name="person-circle-outline" style={{ fontSize: '1.9em' }} ></ion-icon>
           </div>
 

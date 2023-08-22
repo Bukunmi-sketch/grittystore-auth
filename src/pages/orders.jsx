@@ -6,6 +6,7 @@ import HomeHeader from '../components/homeheader';
 import MobileNav from '../components/mobilenav';
 import Cookies from 'js-cookie'
 import axios from 'axios';
+import "../css/order.css"
 import DynamicHeader from '../components/dynamicHeader';
 
 
@@ -17,6 +18,7 @@ function Orders() {
     const [loading, setLoading] = useState(true);
     const UserToken = Cookies.get('token');
     const [userOrderData, setuserOrderData] = useState([]);
+    const [message, setMessage] = useState("");
 
         useEffect(() => {
             setTimeout(() => setLoading(false), 2000);
@@ -49,7 +51,7 @@ function Orders() {
                     Cookies.remove("token")
                     navigate('/');
                 } else if (error.response.statusText == "Not Found" && error.response.status == "404") {
-                    setuserOrderData({message:"not found"})
+                    setMessage("Oops! You have no Orders at the Moment")
                 }
                 //
 
@@ -70,25 +72,20 @@ function Orders() {
 
     if (loading) {
         return <div className="loader" style={{ margin: "50vh auto" }}></div>
-    }
-    // If page is not in loading state, display page.
-    else {
+    }else {
         return (
             <>
                 <DynamicHeader title="Order" />
-                <div className="home-container" style={{ marginTop: "70px" }}>
+                <div className="home-container" style={{ marginTop: "70px",border:"1px solid red"  }}>
                     {/* Render user account data or components here */}
-                    {userOrderData && (
+                    { message == "" ? (
                         <div>
                             {/* Render user account details */}
-                            <p>Name : {userOrderData.message} {userOrderData.lastname}</p>
-                            <p>Email: {userOrderData.email}</p>
-                            <p>Account Status: {userOrderData.accountStatus}</p>
-                            <p> State : {userOrderData.state}</p>
-                            <p> Joined: {userOrderData.reg_date}</p>
-                            <p> Local Government: {userOrderData.country}</p>
+                            <p className='order-message'> {userOrderData.message} </p>
                             {/* ... other account data */}
                         </div>
+                    ):(
+                        <p className='order-message'> {message} </p>  
                     )}
                 </div>
 
