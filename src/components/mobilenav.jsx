@@ -46,7 +46,7 @@ function MobileNav() {
 
 
 
-                <Link to="/connect" class="menu-nav">
+                <Link to="/shops" class="menu-nav">
                     { location.pathname === "/shops" ? (
                         <>
                             <span> <ion-icon name="storefront"></ion-icon>   </span>

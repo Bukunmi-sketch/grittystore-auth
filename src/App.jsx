@@ -35,6 +35,7 @@ import Home from './pages/home';
 import Itemheader from './components/itemheader';
 import Notifications from './pages/notification';
 import Accounts from './pages/account';
+import Shops from './pages/shop';
 
 
 
@@ -407,6 +408,13 @@ function App() {
           <Route path='/orders' element={
             <>
               <Orders />
+              <MobileNav />
+            </>
+          } />
+
+<Route path='/shop' element={
+            <>
+              <Shops/>
               <MobileNav />
             </>
           } />
