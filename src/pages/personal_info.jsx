@@ -8,53 +8,47 @@ import Cookies from 'js-cookie'
 import axios from 'axios';
 import "../css/profile.css"
 import DynamicHeader from '../components/dynamicHeader';
-import '../css/form.css'
 
 
 
-function Accounts() {
+function PersonalInfo() {
 
 
     const navigate = useNavigate();
-    const [inputs, setinputs] = useState({});
     const [loading, setLoading] = useState(true);
-    const [Errormsg, setErrormsg] = useState("");
-    const [buttonloading, setbuttonLoading] = useState(false);
     const UserToken = Cookies.get('token');
     const [userAccountData, setUserAccountData] = useState([]);
-    const [changePasswordModal, setchangePasswordModal] = useState(false);
 
     useEffect(() => {
         setTimeout(() => setLoading(false), 2000);
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
 
-
-    const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1);
-    
-        setinputs((values) => ({
-          ...values,
-          [name]: value,
-          // "firstname":"",
-          // "lastname":"",
-          // "email":"",
-          // "lga":"",
-          // "state":"",
-          // "password":"",
-          // "confirmpass":""
-        }));
-    
-        console.log(inputs);
-        // e.g {name:"yourInputname", email: "yourinputEmail", mobile:"yourInputMobile"}
-      };
-
-      const handleChangePassword =()=>{
-        console.log(inputs);
-      }
+    //     useEffect(() => {
+    //         const UserToken = Cookies.get('token');
+    //         if (!UserToken) {
+    //           navigate('/');
+    //         }
+    //       }, [navigate]);
 
 
+    //    // console.log("token", UserToken);
+    //    async function getUserAccountDetails() {
+    //     try {
+    //       // const API_LINK = "http://localhost/New/Grittystore/Api/getCategories.php";
+    //       const API = `http://localhost/New/GrittyStore/Api/userAccount.php`;
+    //       const categoryresponse = await axios.get(API,
+    //         {
+    //           headers: {
+    //             "Content-Type": "application/json",
+    //             Authorization: `Bearer ${UserToken}`
+    //           }
+    //         });
+    //       console.log("lol categoryresponse", categoryresponse.data);
+    //     } catch (error) {
+    //         console.log(error);
+    //       }
+    //     }
 
 
     useEffect(() => {
@@ -108,16 +102,11 @@ function Accounts() {
             <div className="profile-container">
                 <DynamicHeader title="Account" />
                 {/* Render user account data or components here */}
-
-               
-
-
-
                 {userAccountData && (
                     <div style={{ marginTop: "70px" }}>
                         <div className='box'>
                             <div className="box-header">
-                                <span><ion-icon name="cube-outline"></ion-icon> Purchases</span>
+                                <span>Purchases</span>
                                 <span>View all Purchases</span>
                             </div>
                             <p>Name : {userAccountData.firstname} {userAccountData.lastname}</p>
@@ -128,7 +117,7 @@ function Accounts() {
 
                         <div className='box'>
                             <div className="box-header">
-                                <span><ion-icon name="heart-outline"></ion-icon>  Wishlist</span>
+                                <span>Wishlist</span>
                                 <span> Manage lists</span>
                             </div>
                             <p> Joined: {userAccountData.reg_date}</p>
@@ -140,7 +129,7 @@ function Accounts() {
 
                         <div className='box'>
                             <div className="box-header">
-                                <span> <ion-icon name="card-outline"></ion-icon> Shipping Address & Payment Method </span>
+                                <span>Shipping Address & Payment Method </span>
                                 <span> Manage</span>
                             </div>
                             <p> Joined: {userAccountData.reg_date}</p>
@@ -151,59 +140,23 @@ function Accounts() {
 
                         <div className='box'>
                             <div className="box-header">
-                                <span><ion-icon name="cog-outline"></ion-icon> Account Settings</span>
+                                <span>Account Settings</span>
                             </div>
-                            <div className="box-content" onClick={() => setchangePasswordModal(!changePasswordModal)}>
-                                <p><ion-icon name="lock-open-outline"></ion-icon> Password & Personal Info</p>
+                            <div className="box-content">
+                                <p> Password & Personal Info</p>
                                 <span>password, email , mobile & more</span>
-                                <span><ion-icon name="chevron-forward-outline"></ion-icon></span>
                             </div>
 
                             <div className="box-content">
-                                <p> <ion-icon name="mail-open-outline"></ion-icon> Communications</p>
+                                <p> Communications</p>
                                 <span>password, email , mobile & more</span>
-                                <span><ion-icon name="chevron-forward-outline"></ion-icon></span>
                             </div>
 
                             <div className="box-content">
-                                <p> <ion-icon name="storefront-outline"></ion-icon> Your Store </p>
+                                <p> Your Store </p>
                                 <span>password, email , mobile & more</span>
-                                <span><ion-icon name="chevron-forward-outline"></ion-icon></span>
                             </div>
 
-
-                            { changePasswordModal && (
-                                // <div className="modal-blur">
-                                <div className="form" style={{ position: "absolute", zIndex:'200' }}>
-
-                                <div className="form-container">
-                            
-                                    <p className="contact-info"> Change Password </p>
-                                    <form onSubmit={handleChangePassword}>
-                                        <div className="namebox">
-                                            <label htmlFor="address">Email or  Mobile No </label>
-                                            <input type="email" name="email" value={inputs.email || ""} onChange={handleChange} />
-                                        </div>
-                            
-                            
-                                        <div className="namebox">
-                                            <label htmlFor="address">Password</label>
-                                            <input type="password" name="password" value={inputs.password || ""} onChange={handleChange} />
-                                        </div>
-                            
-                                        <div className="namebox">
-                            
-                                            <div style={{ color: "#FF6600" }}> {Errormsg} </div>
-                                            <button type="submit" className="checkout-btn"> {buttonloading ? (<div class="loader"></div>) : (<span>Login</span>)} </button>
-                                        </div>
-                    
-                                    </form>
-                                </div>
-                            </div>
-                            //  </div>
-                            ) }
-
-                          
                         </div>
 
                         <div className='box'>
@@ -220,23 +173,19 @@ function Accounts() {
 
                         <div className='box'>
                             <div className="box-header">
-                                <span><ion-icon name="chatbubbles-outline"></ion-icon>  Customer Service</span>
+                                <span>Customer Service</span>
                                 <span> More Options </span>
-                              
                             </div>
                             <div className="box-content">
                                 <p> Get Help fast </p>
-                                <span><ion-icon name="chevron-forward-outline"></ion-icon></span>
                             </div>
 
                             <div className="box-content">
                                 <p> Start a return </p>
-                                <span><ion-icon name="chevron-forward-outline"></ion-icon></span>
                             </div>
 
                             <div className="box-content">
                                 <p> Request a price adjustment</p>
-                                <span><ion-icon name="chevron-forward-outline"></ion-icon></span>
                             </div>
 
                         </div>
@@ -252,4 +201,4 @@ function Accounts() {
     }
 }
 
-export default Accounts;
+export default PersonalInfo;

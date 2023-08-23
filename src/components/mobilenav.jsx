@@ -46,20 +46,20 @@ function MobileNav() {
 
 
 
-                {/* <Link to="/connect" class="menu-nav">
-                    { location.pathname === "/connect" ? (
+                <Link to="/connect" class="menu-nav">
+                    { location.pathname === "/shops" ? (
                         <>
-                            <span>  <FaUserAlt />   </span>
+                            <span> <ion-icon name="storefront"></ion-icon>   </span>
                             <h3> <b>Shops </b></h3>
                         </>
                     ) : (
                         <>
-                            <span> <ion-icon name="person-add-outline"></ion-icon> </span>
+                            <span> <ion-icon name="storefront-outline"></ion-icon></span>
                             <h3> Shops </h3>
                         </>
                     )
                     }
-                </Link> */}
+                </Link>
 
                 <Link to="/notification" class="menu-nav">
                     { location.pathname === "/notification" ? (
