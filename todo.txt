@@ -1,3 +1,6 @@
 show password signup
 keep me signed in
 change signup to Create Account
+
+ Brandon Text,Arial,sans-serif;
+    color: #333;
